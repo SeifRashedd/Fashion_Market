@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'Features/splash/presentation/views/widgets/splash_view.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class FashionMarcket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashView(),
     );
