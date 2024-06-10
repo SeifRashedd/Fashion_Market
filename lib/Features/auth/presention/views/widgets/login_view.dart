@@ -24,12 +24,12 @@ class LoginView extends StatelessWidget {
             const Gap(20),
             Text(
               'Welcome!',
-              style: AppStyles.styleBold18,
+              style: AppStyles.styleBold18.copyWith(fontSize: 22),
             ),
             const Gap(5),
             Text(
               'please login or sign up to continue our app',
-              style: AppStyles.styleSemiBold11,
+              style: AppStyles.styleSemiBold11.copyWith(fontSize: 14),
             ),
             const Gap(50),
             CustomFormTextField(
