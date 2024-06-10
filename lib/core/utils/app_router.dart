@@ -1,7 +1,8 @@
-import 'package:fashion_market/Features/auth/presention/views/widgets/login_view.dart';
-import 'package:fashion_market/Features/auth/presention/views/widgets/register_view.dart';
-import 'package:fashion_market/Features/home/presentation/views/widgets/home_view.dart';
-import 'package:fashion_market/Features/splash/presentation/views/widgets/splash_view.dart';
+
+import 'package:fashion_market/Features/auth/presention/views/login_view.dart';
+import 'package:fashion_market/Features/auth/presention/views/register_view.dart';
+import 'package:fashion_market/Features/home/presentation/views/home_view.dart';
+import 'package:fashion_market/Features/splash/presentation/views/splash_view.dart';
 import 'package:fashion_market/constants.dart';
 import 'package:go_router/go_router.dart';
 

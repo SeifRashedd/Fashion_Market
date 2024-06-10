@@ -1,4 +1,4 @@
-import 'package:fashion_market/core/utils/app_images.dart';
+import 'package:fashion_market/Features/splash/presentation/views/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -47,24 +47,8 @@ class SplashViewState extends State<SplashView>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: AnimatedBuilder(
-        animation: _animation,
-        builder: (context, child) {
-          return SlideTransition(
-            position: _animation,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: 300,
-                  width: 600,
-                  child: AppImages.logoImage,
-                ),
-              ],
-            ),
-          );
-        },
-      ),
+      body: SplashViewBody(animation: _animation),
     );
   }
 }
+
