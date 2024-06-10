@@ -1,6 +1,5 @@
+import 'package:fashion_market/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'Features/splash/presentation/views/widgets/splash_view.dart';
 
 void main() {
   runApp(const FashionMarcket());
@@ -11,9 +10,11 @@ class FashionMarcket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return  MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: SplashView(),
+      routerConfig: AppRouter.router,
     );
   }
 }
+
+

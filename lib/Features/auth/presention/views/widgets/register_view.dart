@@ -1,9 +1,11 @@
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
+import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
@@ -47,7 +49,9 @@ class RegisterView extends StatelessWidget {
             const Gap(20),
             CustomButton(
               text: 'Sign up',
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(kHomeView);
+              },
             ),
             const Gap(10),
             const Center(

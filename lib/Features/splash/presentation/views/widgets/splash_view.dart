@@ -1,6 +1,6 @@
-import 'package:fashion_market/Features/auth/presention/views/widgets/login_view.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -33,11 +33,7 @@ class SplashViewState extends State<SplashView>
     _controller
         .forward()
         .then((value) => Future.delayed(const Duration(seconds: 2), () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const LoginView(),
-                ),
-              );
+              GoRouter.of(context).push('/LoginView');
             }));
   }
 

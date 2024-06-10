@@ -1,10 +1,11 @@
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
-import 'package:fashion_market/Features/auth/presention/views/widgets/register_view.dart';
+import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -48,7 +49,9 @@ class LoginView extends StatelessWidget {
             const Gap(20),
             CustomButton(
               text: 'Login',
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(kHomeView);
+              },
             ),
             const Gap(10),
             const Center(
@@ -60,11 +63,7 @@ class LoginView extends StatelessWidget {
             const Gap(5),
             GestureDetector(
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const RegisterView(),
-                  ),
-                );
+                GoRouter.of(context).push(kRegisterView);
               },
               child: const Center(
                 child: Text(
