@@ -66,7 +66,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               text: 'Login',
               onTap: () async {
                 try {
-                  UserCredential user = await FirebaseAuth.instance
+                   await FirebaseAuth.instance
                       .signInWithEmailAndPassword(
                           email: email!, password: password!);
                   setState(() {

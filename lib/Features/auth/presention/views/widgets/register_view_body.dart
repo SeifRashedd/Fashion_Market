@@ -65,7 +65,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             text: 'Sign up',
             onTap: () async {
               try {
-                UserCredential user = await FirebaseAuth.instance
+                 await FirebaseAuth.instance
                     .createUserWithEmailAndPassword(
                         email: email!, password: password!);
                 setState(() {
