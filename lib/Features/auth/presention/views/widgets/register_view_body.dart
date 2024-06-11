@@ -18,8 +18,8 @@ class RegisterViewBody extends StatefulWidget {
 
 class _RegisterViewBodyState extends State<RegisterViewBody> {
   String? email;
-
   String? password;
+  String? username;
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +42,22 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             'Create an new account',
             style: AppStyles.styleSemiBold11.copyWith(fontSize: 14),
           ),
-          const Gap(50),
+          const Gap(20),
           CustomFormTextField(
               onChange: (data) {
                 email = data;
               },
               labelText: 'Email',
-              hintText: 'Enter youe email address'),
+              hintText: 'Enter your email address'),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomFormTextField(
+              onChange: (data) {
+                username = data;
+              },
+              labelText: 'Username',
+              hintText: 'Enter your username'),
           const SizedBox(
             height: 20,
           ),
@@ -65,26 +74,37 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             text: 'Sign up',
             onTap: () async {
               try {
-                 await FirebaseAuth.instance
+                UserCredential userCredential = await FirebaseAuth.instance
                     .createUserWithEmailAndPassword(
                         email: email!, password: password!);
-                setState(() {
-                  showAuthSnackbar(context, 'Signed Up Sucssfully', true);
-                });
+
+                await userCredential.user!.updateProfile(displayName: username);
+
+                await userCredential.user!.reload();
+                User? updatedUser = FirebaseAuth.instance.currentUser;
+
+                if (updatedUser != null) {
+                  username = updatedUser.displayName;
+                  setState(() {
+                    showAuthSnackbar(context, 'Signed Up Successfully', true);
+                  });
+                }
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'weak-password') {
                   setState(() {
                     showAuthSnackbar(
                         context, 'The password provided is too weak', false);
                   });
-                } else if (e.code == 'email already in use') {
+                } else if (e.code == 'email-already-in-use') {
                   setState(() {
-                    showAuthSnackbar(context, 'email-already-in-use', false);
+                    showAuthSnackbar(
+                        context, 'The email is already in use', false);
                   });
                 } else {
                   setState(() {
                     showAuthSnackbar(
-                        context, 'Something went wrong please try agin', false);
+                        context, 'Something went wrong. Please try again',
+                        false);
                   });
                 }
               }
@@ -93,7 +113,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           const Gap(10),
           const Center(
             child: Text(
-              'if you already have  account ',
+              'If you already have an account',
               style: TextStyle(color: Colors.black, fontSize: 15),
             ),
           ),
