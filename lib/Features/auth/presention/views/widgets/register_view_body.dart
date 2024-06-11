@@ -1,16 +1,27 @@
+import 'dart:developer';
+
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
-import 'package:fashion_market/constants.dart';
+import 'package:fashion_market/Features/auth/presention/views/widgets/snackbar.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:go_router/go_router.dart';
 
-class RegisterViewBody extends StatelessWidget {
+class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({
     super.key,
   });
+
+  @override
+  State<RegisterViewBody> createState() => _RegisterViewBodyState();
+}
+
+class _RegisterViewBodyState extends State<RegisterViewBody> {
+  String? email;
+
+  String? password;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +46,9 @@ class RegisterViewBody extends StatelessWidget {
           ),
           const Gap(50),
           CustomFormTextField(
-              onChange: (data) {},
+              onChange: (data) {
+                email = data;
+              },
               labelText: 'Email',
               hintText: 'Enter youe email address'),
           const SizedBox(
@@ -43,15 +56,26 @@ class RegisterViewBody extends StatelessWidget {
           ),
           CustomFormTextField(
             obscureText: true,
-            onChange: (data) {},
+            onChange: (data) {
+              password = data;
+            },
             labelText: 'Password',
             hintText: 'Enter your password',
           ),
           const Gap(20),
           CustomButton(
             text: 'Sign up',
-            onTap: () {
-              GoRouter.of(context).push(kHomeView);
+            onTap: () async {
+              try {
+                UserCredential user = await FirebaseAuth.instance
+                    .createUserWithEmailAndPassword(
+                        email: email!, password: password!);
+                setState(() {});
+                showAuthSnackbar(context, 'email aready in use', true);
+              } catch (e) {
+                // showAuthSnackbar(context, e.toString(), true);
+              }
+              // GoRouter.of(context).push(kHomeView);
             },
           ),
           const Gap(10),

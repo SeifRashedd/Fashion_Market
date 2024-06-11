@@ -51,7 +51,7 @@ class LoginViewBody extends StatelessWidget {
           CustomButton(
             text: 'Login',
             onTap: () {
-              GoRouter.of(context).push(kHomeView);
+              // GoRouter.of(context).push(kHomeView);
             },
           ),
           const Gap(10),
