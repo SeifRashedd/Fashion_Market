@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
 import 'package:fashion_market/Features/auth/presention/views/widgets/snackbar.dart';
@@ -70,12 +68,26 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                 UserCredential user = await FirebaseAuth.instance
                     .createUserWithEmailAndPassword(
                         email: email!, password: password!);
-                setState(() {});
-                showAuthSnackbar(context, 'email aready in use', true);
-              } catch (e) {
-                // showAuthSnackbar(context, e.toString(), true);
+                setState(() {
+                  showAuthSnackbar(context, 'Signed Up Sucssfully', true);
+                });
+              } on FirebaseAuthException catch (e) {
+                if (e.code == 'weak-password') {
+                  setState(() {
+                    showAuthSnackbar(
+                        context, 'The password provided is too weak', false);
+                  });
+                } else if (e.code == 'email already in use') {
+                  setState(() {
+                    showAuthSnackbar(context, 'email-already-in-use', false);
+                  });
+                } else {
+                  setState(() {
+                    showAuthSnackbar(
+                        context, 'Something went wrong please try agin', false);
+                  });
+                }
               }
-              // GoRouter.of(context).push(kHomeView);
             },
           ),
           const Gap(10),
