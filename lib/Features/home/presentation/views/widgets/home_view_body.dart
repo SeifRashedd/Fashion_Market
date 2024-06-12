@@ -1,6 +1,8 @@
 import 'package:fashion_market/Features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:fashion_market/Features/home/presentation/views/widgets/promo_code_list_view.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -28,7 +30,16 @@ class HomeViewBody extends StatelessWidget {
               style: AppStyles.styleSemiBold20,
             ),
             const Gap(28),
-            // const CustomSaleItem(),
+            const PromoCodeListView(),
+            const Gap(28),
+            Row(
+              children: [
+                Text(
+                  'New Arrivals',
+                  style: AppStyles.styleBold18,
+                )
+              ],
+            )
           ],
         ),
       ),
