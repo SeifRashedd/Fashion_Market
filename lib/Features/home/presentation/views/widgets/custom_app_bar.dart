@@ -19,7 +19,10 @@ class CustomAppBar extends StatelessWidget {
           const Spacer(
             flex: 1,
           ),
-          AppImages.userImage
+          SizedBox(
+              height: 30,
+              width: 50,
+              child: Image.asset('assets/images/userimage.png'))
         ],
       ),
     );

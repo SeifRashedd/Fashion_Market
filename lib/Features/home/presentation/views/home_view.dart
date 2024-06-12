@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
                 style: AppStyles.styleSemiBold20,
               ),
               const Gap(28),
-              const CustomSaleItem(),
+              // const CustomSaleItem(),
             ],
           ),
         ),

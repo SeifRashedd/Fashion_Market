@@ -8,5 +8,5 @@ abstract class AppImages {
   static SvgPicture userCover = SvgPicture.asset('assets/images/usercover.svg');
   static SvgPicture itemSaleImage =
       SvgPicture.asset('assets/images/itemsaleimage.svg');
-  static SvgPicture userImage = SvgPicture.asset('assets/images/userimage.svg');
+  // static Image userImage = Image.asset('assets/images/userimage.png');
 }
