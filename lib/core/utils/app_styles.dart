@@ -13,6 +13,12 @@ abstract class AppStyles {
     fontWeight: FontWeight.w700,
     fontSize: 18,
   );
+  static TextStyle styleBold25 = const TextStyle(
+    color: Colors.black,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w600,
+    fontSize: 25,
+  );
   static TextStyle styleSemiBold20 = const TextStyle(
     color: Color(0xff666666),
     fontFamily: 'Poppins',

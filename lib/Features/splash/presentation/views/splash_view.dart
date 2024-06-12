@@ -1,4 +1,5 @@
 import 'package:fashion_market/Features/splash/presentation/views/widgets/splash_view_body.dart';
+import 'package:fashion_market/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,7 +34,7 @@ class SplashViewState extends State<SplashView>
     _controller
         .forward()
         .then((value) => Future.delayed(const Duration(seconds: 2), () {
-              GoRouter.of(context).push('/LoginView');
+              GoRouter.of(context).push(kHomeView);
             }));
   }
 
