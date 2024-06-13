@@ -31,7 +31,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           SizedBox(
             height: 300,
             width: 600,
-            child: AppImages.logoImage,
+            child: AppImages.productItem,
           ),
           const Gap(20),
           Text(
@@ -66,9 +66,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               text: 'Login',
               onTap: () async {
                 try {
-                   await FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
-                          email: email!, password: password!);
+                  await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: email!, password: password!);
                   setState(() {
                     showAuthSnackbar(context, 'Logined Sucssfully', true);
                   });
@@ -85,7 +84,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     });
                   } else {
                     setState(() {
-                      showAuthSnackbar(context, 'somthing went wrong please tryagin later', false);
+                      showAuthSnackbar(context,
+                          'somthing went wrong please tryagin later', false);
                     });
                   }
                 }

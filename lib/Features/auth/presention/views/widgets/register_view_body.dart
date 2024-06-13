@@ -30,7 +30,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
           SizedBox(
             height: 300,
             width: 600,
-            child: AppImages.logoImage,
+            child: AppImages.productItem,
           ),
           const Gap(20),
           Text(
@@ -102,9 +102,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   });
                 } else {
                   setState(() {
-                    showAuthSnackbar(
-                        context, 'Something went wrong. Please try again',
-                        false);
+                    showAuthSnackbar(context,
+                        'Something went wrong. Please try again', false);
                   });
                 }
               }
