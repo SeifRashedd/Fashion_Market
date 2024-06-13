@@ -44,5 +44,11 @@ abstract class AppStyles {
     fontWeight: FontWeight.w600,
     fontSize: 14,
   );
+  static TextStyle styleSemiBold16 = const TextStyle(
+    color: Colors.black,
+    fontFamily: 'Poppins',
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+  );
   
 }

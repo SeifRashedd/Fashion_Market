@@ -13,7 +13,7 @@ class MenuViewBody extends StatelessWidget {
       child: Column(
         children: [
           const MenuViewAppBar(),
-          const Gap(30),
+          const Gap(20),
           CatrgoryModelListView(),
         ],
       ),

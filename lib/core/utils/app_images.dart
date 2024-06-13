@@ -23,4 +23,6 @@ abstract class AppImages {
   static Image bagesCategory = Image.asset('assets/images/bagsCategory.png');
   static Image watchesCategory =
       Image.asset('assets/images/watchesCatrgory.png');
+  static SvgPicture productViewImage = SvgPicture.asset('assets/images/productscreenimage.svg'); 
+  static Image addToCart = Image.asset('assets/images/addToCartButton.png'); 
 }

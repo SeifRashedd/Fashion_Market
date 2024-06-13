@@ -26,13 +26,13 @@ class CategoryListViewBody extends StatelessWidget {
               child: Stack(
                 children: [
                   Positioned(
-                      left: 0,
-                      top: -20,
-                      right: 0,
-                      child: categotymodel[index].categotyImage,
-                      ),
+                    left: 0,
+                    top: -40,
+                    right: 0,
+                    child: categotymodel[index].categotyImage,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 50),
+                    padding: const EdgeInsets.only(left: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
