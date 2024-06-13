@@ -7,7 +7,6 @@ class MenuView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xffE2E3E5),
       body: SafeArea(child: MenuViewBody()),
     );
   }

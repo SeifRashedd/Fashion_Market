@@ -8,7 +8,14 @@ class MenuViewAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(height: 42, width: 42, child: AppImages.backarrow),
+        SizedBox(
+            height: 42,
+            width: 42,
+            child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: AppImages.backarrow)),
         const Spacer(),
         SizedBox(height: 42, width: 42, child: AppImages.cart),
       ],
