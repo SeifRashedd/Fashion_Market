@@ -16,4 +16,5 @@ abstract class AppImages {
   static SvgPicture backarrow = SvgPicture.asset('assets/images/backArrow.svg');
 
   static SvgPicture cart = SvgPicture.asset('assets/images/carticon.svg');
+  static Image newArrives = Image.asset('assets/images/newarrival.png');
 }

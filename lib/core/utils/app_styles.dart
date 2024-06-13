@@ -44,4 +44,5 @@ abstract class AppStyles {
     fontWeight: FontWeight.w600,
     fontSize: 14,
   );
+  
 }
