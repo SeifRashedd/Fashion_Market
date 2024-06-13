@@ -1,5 +1,7 @@
+import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -14,7 +16,12 @@ class CustomAppBar extends StatelessWidget {
           SizedBox(
             height: 30,
             width: 50,
-            child: AppImages.menueImage,
+            child: GestureDetector(
+              onTap: ()
+              {
+                GoRouter.of(context).push(kMenuView);
+              },
+              child: AppImages.menueImage),
           ),
           const Spacer(
             flex: 1,
