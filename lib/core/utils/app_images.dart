@@ -16,5 +16,11 @@ abstract class AppImages {
   static SvgPicture backarrow = SvgPicture.asset('assets/images/backArrow.svg');
 
   static SvgPicture cart = SvgPicture.asset('assets/images/carticon.svg');
-  static Image newArrives = Image.asset('assets/images/newarrival.png');
+  static Image newArrival = Image.asset('assets/images/newarrivalimage.png');
+  static Image clothesCategory =
+      Image.asset('assets/images/clothescategory.png');
+  static Image shosesCategory = Image.asset('assets/images/shosesCategry.png');
+  static Image bagesCategory = Image.asset('assets/images/bagsCategory.png');
+  static Image watchesCategory =
+      Image.asset('assets/images/watchesCatrgory.png');
 }
