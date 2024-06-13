@@ -12,6 +12,8 @@ abstract class AppImages {
   );
   static Image loveIcon = Image.asset(
     'assets/images/love.png',
-    // fit: BoxFit.cover,
   );
+  static SvgPicture backarrow = SvgPicture.asset('assets/images/backArrow.svg');
+
+  static SvgPicture cart = SvgPicture.asset('assets/images/carticon.svg');
 }

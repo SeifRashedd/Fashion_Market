@@ -1,3 +1,4 @@
+import 'package:fashion_market/Features/menu/presentation/view/widgets/manu_view_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class MenuViewBody extends StatelessWidget {
@@ -5,7 +6,13 @@ class MenuViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column();
+    return const Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25),
+          child: MenuViewAppBar(),
+        ),
+      ],
+    );
   }
 }
-
