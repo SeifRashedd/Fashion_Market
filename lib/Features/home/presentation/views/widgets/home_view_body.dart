@@ -1,4 +1,4 @@
-import 'package:fashion_market/Features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:fashion_market/Features/home/presentation/views/widgets/home_view_app_bar.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/product_item_grid_view.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/promo_code_list_view.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
@@ -21,7 +21,7 @@ class HomeViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const CustomAppBar(),
+            const HomeViewAppBar(),
             const Gap(22),
             Text(
               'Welcome,',
@@ -46,5 +46,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-
-
