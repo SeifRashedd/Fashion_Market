@@ -1,4 +1,6 @@
+import 'package:fashion_market/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar(
@@ -15,16 +17,20 @@ class CustomBottomNavigationBar extends StatelessWidget {
         topRight: Radius.circular(30),
       ),
       child: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
+            icon: IconButton(
+                onPressed: () {
+                  GoRouter.of(context).push(kFavoriteView);
+                },
+                icon: const Icon(Icons.favorite)),
             label: 'Favorite',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
           ),

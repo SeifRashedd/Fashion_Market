@@ -20,7 +20,7 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
     });
   }
 
-  void _decrementQuantity() {
+  void decrementQuantity() {
     setState(() {
       if (quantity > 1) {
         quantity--;
@@ -89,7 +89,7 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.remove),
-                    onPressed: _decrementQuantity,
+                    onPressed: decrementQuantity,
                   ),
                   Text('$quantity'),
                   IconButton(
@@ -107,5 +107,12 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
     );
   }
 }
+
+
+
+
+
+
+
 
 
