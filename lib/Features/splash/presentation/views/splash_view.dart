@@ -52,4 +52,3 @@ class SplashViewState extends State<SplashView>
     );
   }
 }
-

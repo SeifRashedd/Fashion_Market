@@ -107,12 +107,3 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
     );
   }
 }
-
-
-
-
-
-
-
-
-

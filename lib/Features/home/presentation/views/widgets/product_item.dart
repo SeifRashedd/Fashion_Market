@@ -6,18 +6,16 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
 class ProductItemHomeView extends StatefulWidget {
-  const ProductItemHomeView({super.key,});
+  const ProductItemHomeView({
+    super.key,
+  });
 
   @override
   ProductItemHomeViewState createState() => ProductItemHomeViewState();
-  
 }
-
-
 
 class ProductItemHomeViewState extends State<ProductItemHomeView> {
   bool isFavorite = false;
-  
 
   ProductItemHomeViewState();
 

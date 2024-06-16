@@ -85,5 +85,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'fashion-market-bcd24.appspot.com',
     measurementId: 'G-T5Y1722SXV',
   );
-
 }
