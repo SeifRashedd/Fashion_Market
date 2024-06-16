@@ -1,5 +1,5 @@
-import 'package:fashion_market/Features/menu/presentation/view/data/models/catergoy_model.dart';
-import 'package:fashion_market/Features/menu/presentation/view/widgets/category_list_view_body.dart';
+import 'package:fashion_market/Features/home/data/models/catergoy_model.dart';
+import 'package:fashion_market/Features/home/presentation/views/widgets/category_list_view_body.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 

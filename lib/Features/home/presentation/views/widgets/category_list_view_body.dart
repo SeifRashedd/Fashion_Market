@@ -1,4 +1,4 @@
-import 'package:fashion_market/Features/menu/presentation/view/data/models/catergoy_model.dart';
+import 'package:fashion_market/Features/home/data/models/catergoy_model.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 

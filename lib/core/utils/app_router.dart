@@ -3,7 +3,7 @@ import 'package:fashion_market/Features/auth/presention/views/register_view.dart
 import 'package:fashion_market/Features/home/presentation/views/favorite_view.dart';
 import 'package:fashion_market/Features/home/presentation/views/home_view.dart';
 import 'package:fashion_market/Features/home/presentation/views/product_details_view.dart';
-import 'package:fashion_market/Features/menu/presentation/view/menu_view.dart';
+import 'package:fashion_market/Features/home/menu_view.dart';
 import 'package:fashion_market/Features/splash/presentation/views/splash_view.dart';
 import 'package:fashion_market/constants.dart';
 import 'package:go_router/go_router.dart';
