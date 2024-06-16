@@ -1,4 +1,4 @@
-import 'dart:math'; 
+import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/Features/home/data/repos/home_repo.dart';
@@ -13,11 +13,10 @@ class HomeRepoImpl implements HomeRepo{
   Future<Either<Failuer, List<ProductModel>>> fetchBags() async {
   try {
   var data = await apiService.get(endPoint: 'product?category=bages');
-  int count = data['count'];
-  log(count);
   List<ProductModel> products =[];
   for (var item in data['products']) {
     products.add(ProductModel.fromJson(item));
+    log(products[item].toString());
   }
   return right(products);
 }  catch (e) {
@@ -26,26 +25,62 @@ class HomeRepoImpl implements HomeRepo{
   }
 
   @override
-  Future<Either<Failuer, List<ProductModel>>> fetchClothes() {
-    // TODO: implement fetchClothes
-    throw UnimplementedError();
+  Future<Either<Failuer, List<ProductModel>>> fetchClothes() async {
+   try {
+  var data = await apiService.get(endPoint: 'product?category=clothes');
+  List<ProductModel> products =[];
+  for (var item in data['products']) {
+    products.add(ProductModel.fromJson(item));
+    log(products[item].toString());
+  }
+  return right(products);
+}  catch (e) {
+  return left(ServerFailure('error fetching'));
+}
   }
 
   @override
-  Future<Either<Failuer, List<ProductModel>>> fetchNewArrivles() {
-    // TODO: implement fetchNewArrivles
-    throw UnimplementedError();
+  Future<Either<Failuer, List<ProductModel>>> fetchNewArrivles() async {
+   try {
+  var data = await apiService.get(endPoint: 'product?category=new arrival');
+  List<ProductModel> products =[];
+  for (var item in data['products']) {
+    products.add(ProductModel.fromJson(item));
+    log(products[item].toString());
+  }
+  return right(products);
+}  catch (e) {
+  return left(ServerFailure('error fetching'));
+}
   }
 
   @override
-  Future<Either<Failuer, List<ProductModel>>> fetchShoese() {
-    // TODO: implement fetchShoese
-    throw UnimplementedError();
-  }
+//   Future<Either<Failuer, List<ProductModel>>> fetchShoese() async {
+//     try {
+//   var data = await apiService.get(endPoint: 'product?category=shoese');
+//   List<ProductModel> products =[];
+//   for (var item in data['products']) {
+//     products.add(ProductModel.fromJson(item));
+//     log(products[item].toString());
+//   }
+//   return right(products);
+// }  catch (e) {
+//   return left(ServerFailure('error fetching'));
+// }
+//   }
 
   @override
-  Future<Either<Failuer, List<ProductModel>>> fetchWatches() {
-    // TODO: implement fetchWatches
-    throw UnimplementedError();
+  Future<Either<Failuer, List<ProductModel>>> fetchWatches() async{
+     try {
+  var data = await apiService.get(endPoint: 'product?category=watches');
+  List<ProductModel> products =[];
+  for (var item in data['products']) {
+    products.add(ProductModel.fromJson(item));
+    log(products[item].toString());
+  }
+  return right(products);
+}  catch (e) {
+  return left(ServerFailure('error fetching'));
+}
   }
 }
