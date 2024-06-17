@@ -55,19 +55,19 @@ class HomeRepoImpl implements HomeRepo{
   }
 
   @override
-//   Future<Either<Failuer, List<ProductModel>>> fetchShoese() async {
-//     try {
-//   var data = await apiService.get(endPoint: 'product?category=shoese');
-//   List<ProductModel> products =[];
-//   for (var item in data['products']) {
-//     products.add(ProductModel.fromJson(item));
-//     log(products[item].toString());
-//   }
-//   return right(products);
-// }  catch (e) {
-//   return left(ServerFailure('error fetching'));
-// }
-//   }
+  Future<Either<Failuer, List<ProductModel>>> fetchShoese() async {
+    try {
+  var data = await apiService.get(endPoint: 'product?category=shoese');
+  List<ProductModel> products =[];
+  for (var item in data['products']) {
+    products.add(ProductModel.fromJson(item));
+    log(products[item].toString());
+  }
+  return right(products);
+}  catch (e) {
+  return left(ServerFailure('error fetching'));
+}
+  }
 
   @override
   Future<Either<Failuer, List<ProductModel>>> fetchWatches() async{

@@ -1,10 +1,10 @@
 import 'package:fashion_market/Features/home/data/models/category_model/catergoy_model.dart';
-import 'package:fashion_market/Features/home/presentation/views/widgets/category_list_view_body.dart';
+import 'package:fashion_market/Features/home/presentation/views/widgets/menu_list_view_body.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
-class CatrgoryModelListView extends StatelessWidget {
-  CatrgoryModelListView({
+class MenuCatrgoryModelListView extends StatelessWidget {
+  MenuCatrgoryModelListView({
     super.key,
   });
   final List<CategotyModel> categotymodel = [
@@ -33,7 +33,7 @@ class CatrgoryModelListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: CategoryListViewBody(categotymodel: categotymodel),
+      child: MenuListViewBody(categotymodel: categotymodel),
     );
   }
 }
