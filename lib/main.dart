@@ -32,19 +32,29 @@ class FashionMarcket extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => NewArrivalCubit(getIt.get<HomeRepoImpl>()),
-        ),
-         BlocProvider(
-          create: (context) => BagesCubit(getIt.get<HomeRepoImpl>()),
-        ),
-        BlocProvider(
-          create: (context) => WatchesCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => NewArrivalCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetcNewArrival(),
         ),
         BlocProvider(
-          create: (context) => ClothesCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => BagesCubit(
+            getIt.get<HomeRepoImpl>(),
+          ),
         ),
         BlocProvider(
-          create: (context) => ShoesCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => WatchesCubit(
+            getIt.get<HomeRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => ClothesCubit(
+            getIt.get<HomeRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => ShoesCubit(
+            getIt.get<HomeRepoImpl>(),
+          ),
         ),
       ],
       child: MaterialApp.router(

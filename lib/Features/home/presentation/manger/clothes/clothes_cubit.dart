@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/Features/home/data/repos/home_repo.dart';
+import 'package:fashion_market/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'clothes_state.dart';
@@ -12,7 +13,7 @@ class ClothesCubit extends Cubit<ClothesState> {
 
   Future<void> fetchClothes() async {
     emit(ClothesLoading());
-    var result = await homeRepo.fetchClothes();
+    var result = await homeRepo.fetchCategory(categoryname: kClothesCategory );
     result.fold((failure) {
       emit(ClothesFailure(failure.errMsg));
     }, (products) {

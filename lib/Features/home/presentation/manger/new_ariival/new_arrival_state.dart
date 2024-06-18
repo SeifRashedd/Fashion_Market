@@ -14,7 +14,7 @@ class NewArrivalLoading extends NewArrivalState {}
 class NewArrivalFailure extends NewArrivalState {
   final String errMsg;
 
-  const  NewArrivalFailure(this.errMsg);
+  const NewArrivalFailure(this.errMsg);
 }
 
 class NewArrivalSuccess extends NewArrivalState {
