@@ -21,7 +21,7 @@ class HomeRepoImpl implements HomeRepo{
   }
   return right(products);
 }  catch (e) {
-  return left(ServerFailure('error fetching'));
+  return left(ServerFailure(e.toString()));
 }
     
   }
