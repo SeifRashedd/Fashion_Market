@@ -6,4 +6,5 @@ abstract class HomeRepo {
   
   Future<Either<Failuer, List<ProductModel>>> fetchCategory({required String categoryname});
 
+
 }
