@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/Features/home/presentation/manger/new_ariival/new_arrival_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/product_item.dart';
 import 'package:fashion_market/core/widgets/custom_error_widget.dart';
@@ -10,6 +11,7 @@ import 'package:hive_flutter/adapters.dart';
 
 class ProductItemGridView extends StatelessWidget {
   const ProductItemGridView({super.key});
+  static List<ProductModel> products=[];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,9 @@ class ProductItemGridView extends StatelessWidget {
           mainAxisSpacing: 20,
         ),
         itemBuilder: (context, index) {
-          return const ProductItemHomeView();
+          return  ProductItemHomeView(
+            productModel: products[index],
+          );
         },
       );
     },

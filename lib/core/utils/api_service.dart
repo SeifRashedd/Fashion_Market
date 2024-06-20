@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 

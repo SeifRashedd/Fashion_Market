@@ -1,3 +1,4 @@
+import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
@@ -7,9 +8,9 @@ import 'package:go_router/go_router.dart';
 
 class ProductItemHomeView extends StatefulWidget {
   const ProductItemHomeView({
-    super.key,
+    super.key, required this.productModel,
   });
-
+ final ProductModel productModel;
   @override
   ProductItemHomeViewState createState() => ProductItemHomeViewState();
 }
@@ -32,7 +33,7 @@ class ProductItemHomeViewState extends State<ProductItemHomeView> {
               child: SizedBox(
                 height: 155,
                 width: 170,
-                child: AppImages.productItem,
+                child:Image.network(widget.productModel.image),
               ),
             ),
           ),
