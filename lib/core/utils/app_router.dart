@@ -32,10 +32,10 @@ abstract class AppRouter {
         path: kMenuView,
         builder: (context, state) => const MenuView(),
       ),
-      GoRoute(
-        path: kProductView,
-        builder: (context, state) => const ProductDetailsView(),
-      ),
+      // GoRoute(
+      //   path: kProductView,
+      //   builder: (context, state) => const ProductDetailsView(),
+      // ),
       GoRoute(
         path: kFavoriteView,
         builder: (context, state) => const FavoriteView(),

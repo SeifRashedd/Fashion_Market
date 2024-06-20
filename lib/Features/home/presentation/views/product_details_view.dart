@@ -1,14 +1,18 @@
+import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
+import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/product_details_view_app_bar.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 
 class ProductDetailsView extends StatefulWidget {
-  const ProductDetailsView({super.key});
+  const ProductDetailsView({super.key, required this.productModel});
 
   @override
   ProductDetailsViewState createState() => ProductDetailsViewState();
+  final ProductModel productModel;
 }
 
 class ProductDetailsViewState extends State<ProductDetailsView> {
@@ -39,14 +43,24 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
             children: [
               const ProductDetailsViewAppBar(),
               const Gap(20),
-              Center(child: AppImages.productItem),
+              Positioned(
+                left: 0,
+                right: 0,
+                child: SizedBox(
+                    height: 300,
+                    width: double.infinity,
+                    child: Image.network(
+                      widget.productModel.image,
+                      alignment: Alignment.topCenter,
+                    )),
+              ),
               const Gap(16),
               Text(
-                'Roller Rabbit',
+                widget.productModel.name,
                 style: AppStyles.styleBold18,
               ),
-              Text('Vado Odelle Dress', style: AppStyles.styleRegular11),
               Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(Icons.star, color: Colors.yellow),
                   const Icon(Icons.star, color: Colors.yellow),
@@ -55,19 +69,20 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                   const Icon(Icons.star, color: Colors.yellow),
                   const Gap(8),
                   Text(
-                    '(320 Reviews)',
+                    widget.productModel.numReviews.toString(),
                     style: AppStyles.styleRegular11,
                   ),
                 ],
               ),
-              const Gap(30),
+              const Gap(15),
               Text(
                 'Description',
                 style: AppStyles.styleSemiBold16,
               ),
               const Gap(8),
               Text(
-                'Get a little lift from these Sam Edelman sandals featuring ruched straps and leather lace-up ties, while a braided jute sole makes a fresh statement for summer.',
+                widget.productModel.description,
+                overflow: TextOverflow.ellipsis,
                 style: AppStyles.styleRegular11,
               ),
               const Gap(16),
@@ -79,7 +94,7 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                     style: AppStyles.styleSemiBold16,
                   ),
                   Text(
-                    '\$198.00',
+                    '\$${widget.productModel.price.toString()}',
                     style: AppStyles.styleRegular16,
                   ),
                 ],
@@ -100,6 +115,10 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                   AppImages.addToCart
                 ],
               ),
+              const Gap(40),
+              const CustomFormTextField(),
+              const Gap(16),
+              const CustomFormTextField(),
             ],
           ),
         ),
