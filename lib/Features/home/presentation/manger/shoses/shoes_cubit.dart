@@ -13,7 +13,7 @@ class ShoesCubit extends Cubit<ShoesState> {
 
   Future<void> fetchShoese() async {
     emit(ShoesLoading());
-   var result = await homeRepo.fetchCategory(categoryname: kNewShosesCategory);
+    var result = await homeRepo.fetchCategory(categoryname: kShosesCategory);
     result.fold((failure) {
       emit(ShoesFailure(failure.errMsg));
     }, (products) {

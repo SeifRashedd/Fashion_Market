@@ -1,24 +1,24 @@
 part of 'new_arrival_cubit.dart';
 
-abstract class NewArrivalState extends Equatable {
-  const NewArrivalState();
+abstract class ProductslState extends Equatable {
+  const ProductslState();
 
   @override
   List<Object> get props => [];
 }
 
-class NewArrivalInitial extends NewArrivalState {}
+class ProductsInitial extends ProductslState {}
 
-class NewArrivalLoading extends NewArrivalState {}
+class ProductsLoading extends ProductslState {}
 
-class NewArrivalFailure extends NewArrivalState {
+class ProductsFailure extends ProductslState {
   final String errMsg;
 
-  const NewArrivalFailure(this.errMsg);
+  const ProductsFailure(this.errMsg);
 }
 
-class NewArrivalSuccess extends NewArrivalState {
+class ProductsSuccess extends ProductslState {
   final List<ProductModel> products;
 
- const NewArrivalSuccess(this.products);
+  const ProductsSuccess(this.products);
 }

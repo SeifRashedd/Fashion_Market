@@ -1,9 +1,6 @@
 import 'package:fashion_market/Features/home/data/repos/home_repo_impl.dart';
-import 'package:fashion_market/Features/home/presentation/manger/bags/bages_cubit.dart';
-import 'package:fashion_market/Features/home/presentation/manger/clothes/clothes_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/manger/new_ariival/new_arrival_cubit.dart';
-import 'package:fashion_market/Features/home/presentation/manger/shoses/shoes_cubit.dart';
-import 'package:fashion_market/Features/home/presentation/manger/watches/watches_cubit.dart';
+import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_router.dart';
 import 'package:fashion_market/core/utils/service_locator.dart';
 import 'package:fashion_market/firebase_options.dart';
@@ -32,29 +29,9 @@ class FashionMarcket extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => NewArrivalCubit(
+          create: (context) => ProductsCubit(
             getIt.get<HomeRepoImpl>(),
-          )..fetcNewArrival(),
-        ),
-        BlocProvider(
-          create: (context) => BagesCubit(
-            getIt.get<HomeRepoImpl>(),
-          )..fetchBages(),
-        ),
-        BlocProvider(
-          create: (context) => WatchesCubit(
-            getIt.get<HomeRepoImpl>(),
-          )..fetchWatches(),
-        ),
-        BlocProvider(
-          create: (context) => ClothesCubit(
-            getIt.get<HomeRepoImpl>(),
-          )..fetchClothes(),
-        ),
-        BlocProvider(
-          create: (context) => ShoesCubit(
-            getIt.get<HomeRepoImpl>(),
-          )..fetchShoese(),
+          )..fetchProducts(categoryname: kNewAriivalsCategory),
         ),
       ],
       child: MaterialApp.router(

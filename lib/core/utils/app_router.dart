@@ -35,10 +35,10 @@ abstract class AppRouter {
         path: kFavoriteView,
         builder: (context, state) => const FavoriteView(),
       ),
-      GoRoute(
-        path: kCategoryview,
-        builder: (context, state) => const MenuItemView(),
-      )
+      // GoRoute(
+      //   path: kCategoryview,
+      //   builder: (context, state) => const MenuItemView(),
+      // )
     ],
   );
 }
