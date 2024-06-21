@@ -22,15 +22,18 @@ class MenuListViewBody extends StatelessWidget {
           padding: const EdgeInsets.only(top: 20),
           child: GestureDetector(
             onTap: () {
-              BlocProvider.of<ProductsCubit>(context).fetchProducts(
+              final productsCubit = BlocProvider.of<ProductsCubit>(context);
+              productsCubit.fetchProducts(
                 categoryName: categotyModel[index].kname,
               );
-              context.read<ProductsCubit>().stream.listen((state) {
+              productsCubit.stream.listen((state) {
                 if (state is ProductsSuccess) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
-                        MenuItemView(productlist: state.products),
-                  ));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          MenuItemView(productlist: state.products),
+                    ),
+                  );
                 }
               });
             },
