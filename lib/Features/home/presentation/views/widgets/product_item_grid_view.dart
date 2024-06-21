@@ -1,5 +1,5 @@
 import 'dart:developer';
-import 'package:fashion_market/Features/home/presentation/manger/new_ariival/new_arrival_cubit.dart';
+import 'package:fashion_market/Features/home/presentation/manger/prodcuts_cubit/products_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/product_item.dart';
 import 'package:fashion_market/core/widgets/custom_error_widget.dart';
 import 'package:fashion_market/core/widgets/custom_loading_indi.dart';

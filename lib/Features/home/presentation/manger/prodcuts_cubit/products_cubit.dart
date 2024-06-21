@@ -3,7 +3,7 @@ import 'package:fashion_market/Features/home/data/models/Api/product_model/produ
 import 'package:fashion_market/Features/home/data/repos/home_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'new_arrival_state.dart';
+part 'products_state.dart';
 
 class ProductsCubit extends Cubit<ProductslState> {
   ProductsCubit(this.homeRepo) : super(ProductsInitial());

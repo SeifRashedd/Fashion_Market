@@ -1,5 +1,5 @@
 import 'package:fashion_market/Features/home/data/models/category_model/catergoy_model.dart';
-import 'package:fashion_market/Features/home/presentation/manger/new_ariival/new_arrival_cubit.dart';
+import 'package:fashion_market/Features/home/presentation/manger/prodcuts_cubit/products_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/menu_item_view.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
