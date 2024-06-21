@@ -16,7 +16,7 @@ class MenuItemView extends StatelessWidget {
           child: Column(
             children: [
               MenuViewAppBar(),
-              Gap(20),
+              Gap(30),
               Expanded(child: ProductItemGridView()),
             ],
           ),

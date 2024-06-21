@@ -39,22 +39,22 @@ class FashionMarcket extends StatelessWidget {
         BlocProvider(
           create: (context) => BagesCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchBages(),
         ),
         BlocProvider(
           create: (context) => WatchesCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchWatches(),
         ),
         BlocProvider(
           create: (context) => ClothesCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchClothes(),
         ),
         BlocProvider(
           create: (context) => ShoesCubit(
             getIt.get<HomeRepoImpl>(),
-          ),
+          )..fetchShoese(),
         ),
       ],
       child: MaterialApp.router(

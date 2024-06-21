@@ -4,7 +4,6 @@ import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-
 class ProductItemHomeView extends StatefulWidget {
   const ProductItemHomeView({
     super.key,
@@ -27,10 +26,11 @@ class ProductItemHomeViewState extends State<ProductItemHomeView> {
       children: [
         Stack(children: [
           GestureDetector(
-            // onTap: () => GoRouter.of(context).push(kProductView),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-              return ProductDetailsView(productModel: widget.productModel);
-            },)),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) {
+                return ProductDetailsView(productModel: widget.productModel);
+              },
+            )),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: SizedBox(
