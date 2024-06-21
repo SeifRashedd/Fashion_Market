@@ -18,8 +18,6 @@ class MenuItemsViewAppBar extends StatelessWidget {
                   GoRouter.of(context).push(kMenuView);
                 },
                 child: AppImages.backarrow)),
-        const Spacer(),
-        // SizedBox(height: 42, width: 42, child: AppImages.cart),
       ],
     );
   }
