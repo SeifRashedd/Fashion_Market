@@ -21,9 +21,9 @@ class CategotyGridView extends StatelessWidget {
             mainAxisSpacing: 20,
           ),
           itemBuilder: (context, index) {
-            return ProductItemHomeView(
-                    productModel: products[index],
-                  );
+            return ProductItem(
+              productModel: products[index],
+            );
           },
         );
       },

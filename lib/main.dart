@@ -31,7 +31,7 @@ class FashionMarcket extends StatelessWidget {
         BlocProvider(
           create: (context) => ProductsCubit(
             getIt.get<HomeRepoImpl>(),
-          )..fetchProducts(categoryname: kNewAriivalsCategory),
+          )..fetchProducts(categoryName: kNewAriivalsCategory),
         ),
       ],
       child: MaterialApp.router(

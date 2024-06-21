@@ -9,4 +9,4 @@ const kWatchesCategory = 'watches';
 const kClothesCategory = 'clothes';
 const kBagesCategory = 'bages';
 const kNewAriivalsCategory = 'new arrival';
-const kShosesCategory = 'shoese';
+const kShosesCategory = 'shose';

@@ -8,30 +8,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class MenuListViewBody extends StatelessWidget {
   const MenuListViewBody({
     super.key,
-    required this.categotymodel,
+    required this.categotyModel,
   });
 
-  final List<CategotyModel> categotymodel;
+  final List<CategotyModel> categotyModel;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: categotymodel.length,
+      itemCount: categotyModel.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(top: 20),
           child: GestureDetector(
             onTap: () {
               BlocProvider.of<ProductsCubit>(context).fetchProducts(
-                categoryname: categotymodel[index].kname,
+                categoryName: categotyModel[index].kname,
               );
               context.read<ProductsCubit>().stream.listen((state) {
                 if (state is ProductsSuccess) {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>
-                        MenuItemView(
-                          productlist: state.products
-                        ),
+                        MenuItemView(productlist: state.products),
                   ));
                 }
               });
@@ -48,7 +46,7 @@ class MenuListViewBody extends StatelessWidget {
                       left: 0,
                       top: -40,
                       right: 0,
-                      child: categotymodel[index].categotyImage,
+                      child: categotyModel[index].categotyImage,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
@@ -56,11 +54,11 @@ class MenuListViewBody extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            categotymodel[index].title,
+                            categotyModel[index].title,
                             style: AppStyles.styleBold18,
                           ),
                           Text(
-                            categotymodel[index].productCount,
+                            categotyModel[index].productCount,
                             style: AppStyles.styleRegular16
                                 .copyWith(color: Colors.black),
                           ),

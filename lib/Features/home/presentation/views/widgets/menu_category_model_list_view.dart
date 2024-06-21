@@ -1,3 +1,5 @@
+
+
 import 'package:fashion_market/Features/home/data/models/category_model/catergoy_model.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/menu_list_view_body.dart';
 import 'package:fashion_market/constants.dart';
@@ -39,7 +41,7 @@ class MenuCatrgoryModelListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: MenuListViewBody(categotymodel: categotymodel),
+      child: MenuListViewBody(categotyModel: categotymodel),
     );
   }
 }

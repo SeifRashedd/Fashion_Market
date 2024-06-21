@@ -27,7 +27,7 @@ class ProductItemGridView extends StatelessWidget {
                   mainAxisSpacing: 20,
                 ),
                 itemBuilder: (context, index) {
-                  return ProductItemHomeView(
+                  return ProductItem(
                     productModel: state.products[index],
                   );
                 },

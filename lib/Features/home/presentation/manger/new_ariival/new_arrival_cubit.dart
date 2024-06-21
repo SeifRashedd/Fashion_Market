@@ -10,10 +10,9 @@ class ProductsCubit extends Cubit<ProductslState> {
 
   final HomeRepo homeRepo;
 
-  Future<void> fetchProducts({required String categoryname}) async {
+  Future<void> fetchProducts({required String categoryName}) async {
     emit(ProductsLoading());
-    var result =
-        await homeRepo.fetchCategory(categoryname: categoryname);
+    var result = await homeRepo.fetchCategory(categoryname: categoryName);
     result.fold((falure) {
       emit(ProductsFailure(falure.errMsg));
     }, (products) {

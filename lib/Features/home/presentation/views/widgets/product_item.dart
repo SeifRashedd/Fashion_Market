@@ -4,20 +4,20 @@ import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class ProductItemHomeView extends StatefulWidget {
-  const ProductItemHomeView({
+class ProductItem extends StatefulWidget {
+  const ProductItem({
     super.key,
     required this.productModel,
   });
   final ProductModel productModel;
   @override
-  ProductItemHomeViewState createState() => ProductItemHomeViewState();
+  ProductItemState createState() => ProductItemState();
 }
 
-class ProductItemHomeViewState extends State<ProductItemHomeView> {
+class ProductItemState extends State<ProductItem> {
   bool isFavorite = false;
 
-  ProductItemHomeViewState();
+  ProductItemState();
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,13 @@ class ProductItemHomeViewState extends State<ProductItemHomeView> {
               child: SizedBox(
                 height: 155,
                 width: 170,
-                child: Image.network(widget.productModel.image),
+                child: Image.network(
+                  widget.productModel.image,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return const Icon(Icons.error, size: 50);
+                  },
+                ),
               ),
             ),
           ),
