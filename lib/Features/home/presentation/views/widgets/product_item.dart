@@ -22,6 +22,13 @@ class ProductItemState extends State<ProductItem> {
   bool isFavorite = false;
 
   @override
+  void initState() {
+    super.initState();
+    final favoritesCubit = context.read<FavoritesCubit>();
+    isFavorite = favoritesCubit.state.contains(widget.productModel);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -57,10 +64,11 @@ class ProductItemState extends State<ProductItem> {
                   setState(() {
                     isFavorite = !isFavorite;
                   });
+                  final favoritesCubit = context.read<FavoritesCubit>();
                   if (isFavorite) {
-                    BlocProvider.of<FavoritesCubit>(context).addFavorite(widget.productModel);
+                    favoritesCubit.addFavorite(widget.productModel);
                   } else {
-                    BlocProvider.of<FavoritesCubit>(context).removeFavorite(widget.productModel);
+                    favoritesCubit.removeFavorite(widget.productModel);
                   }
                 },
                 child: Icon(
