@@ -8,12 +8,10 @@ import 'package:fashion_market/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/adapters.dart';
 
 Future<void> main() async {
   setup();
-  await Hive.initFlutter();
-  await Hive.openBox('Favorites');
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -34,7 +32,7 @@ class FashionMarcket extends StatelessWidget {
             getIt.get<HomeRepoImpl>(),
           )..fetchProducts(categoryName: kNewAriivalsCategory),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => FavoritesCubit(),
         ),
       ],

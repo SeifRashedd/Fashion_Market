@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 
@@ -12,11 +11,10 @@ class ApiService {
     var response = await _dio.get('$_baseUrl$endPoint');
     if (response.statusCode == 200) {
       List<dynamic> data = response.data;
-      log(data.toString());
+
       var products = {
         for (var item in data) item['_id']: ProductModel.fromJson(item)
       };
-      log(products.toString());
       return products;
     } else {
       throw Exception('Failed to load products');
