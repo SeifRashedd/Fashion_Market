@@ -12,9 +12,6 @@ class ProfileView extends StatelessWidget {
     String username = user?.displayName ?? 'No username';
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
       body: ProfileViewBody(username: username, email: email),
     );
   }

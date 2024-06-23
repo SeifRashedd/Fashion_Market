@@ -25,10 +25,7 @@ class HomeViewAppBar extends StatelessWidget {
           const Spacer(
             flex: 1,
           ),
-          SizedBox(
-              height: 30,
-              width: 50,
-              child: Image.asset('assets/images/userimage.png'))
+          SizedBox(height: 30, width: 50, child: AppImages.userImage)
         ],
       ),
     );

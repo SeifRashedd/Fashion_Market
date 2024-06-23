@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 abstract class AppImages {
   static Image logoImage = Image.asset('assets/images/fashionmarcketlogo.jpeg');
+  static Image userImage = Image.asset('assets/images/userimage.png');
   static SvgPicture menueImage = SvgPicture.asset('assets/images/menu.svg');
   static Image promoCodeImage1 = Image.asset('assets/images/promocode1.png');
   static Image promoCodeImage2 = Image.asset('assets/images/promoCode2.png');

@@ -1,4 +1,9 @@
+import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
+import 'package:fashion_market/Features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:fashion_market/core/utils/app_images.dart';
+import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({
@@ -12,34 +17,46 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10,
-              offset: Offset(0, 5),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(children: [
+          const CustomAppBar(),
+          const Gap(30),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Container(
+              color: Colors.grey,
+              height: 100,
+              width: double.infinity,
+              child: Row(
+                children: [
+                  AppImages.userImage,
+                  const Gap(30),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        username,
+                        style: AppStyles.styleBold18,
+                      ),
+                      Text(
+                        email,
+                        style: AppStyles.styleRegular16,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ],
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Username: $username',
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              'Email: $email',
-              style: const TextStyle(fontSize: 16),
-            ),
-          ],
-        ),
+          ),
+          const Gap(40),
+          const CustomButton(
+            color: Colors.grey,
+            text: 'Add a new prduct',
+          ),
+        ]),
       ),
     );
   }
