@@ -30,8 +30,12 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 icon: const Icon(Icons.favorite)),
             label: 'Favorite',
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+          BottomNavigationBarItem(
+            icon: IconButton(
+                onPressed: () {
+                  GoRouter.of(context).push(kProfileView);
+                },
+                icon: const Icon(Icons.person)),
             label: 'Profile',
           ),
         ],

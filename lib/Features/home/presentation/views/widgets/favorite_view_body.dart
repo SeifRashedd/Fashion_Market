@@ -9,7 +9,6 @@ class FavoriteViewBody extends StatelessWidget {
     super.key,
     required this.favorites, 
   });
-  // final ProductModel productModel;
 
   final List<ProductModel> favorites;
   @override

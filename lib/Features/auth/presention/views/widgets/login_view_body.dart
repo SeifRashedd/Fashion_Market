@@ -31,7 +31,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           SizedBox(
             height: 300,
             width: 600,
-            child: AppImages.productItem,
+            child: AppImages.logoImage,
           ),
           const Gap(20),
           Text(
