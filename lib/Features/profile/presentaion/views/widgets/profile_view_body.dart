@@ -26,7 +26,7 @@ class ProfileViewBody extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Container(
-              color: Colors.grey,
+              color: Colors.black,
               height: 100,
               width: double.infinity,
               child: Row(
@@ -39,11 +39,13 @@ class ProfileViewBody extends StatelessWidget {
                     children: [
                       Text(
                         username,
-                        style: AppStyles.styleBold18,
+                        style:
+                            AppStyles.styleBold18.copyWith(color: Colors.white),
                       ),
                       Text(
                         email,
-                        style: AppStyles.styleRegular16,
+                        style: AppStyles.styleRegular16
+                            .copyWith(color: Colors.white),
                       ),
                     ],
                   )
@@ -53,7 +55,6 @@ class ProfileViewBody extends StatelessWidget {
           ),
           const Gap(40),
           const CustomButton(
-            color: Colors.grey,
             text: 'Add a new prduct',
           ),
         ]),
