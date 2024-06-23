@@ -35,4 +35,3 @@ class FavoriteView extends StatelessWidget {
     );
   }
 }
-
