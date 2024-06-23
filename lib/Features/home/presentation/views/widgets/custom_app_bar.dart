@@ -3,8 +3,8 @@ import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class MenuViewAppBar extends StatelessWidget {
-  const MenuViewAppBar({super.key});
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,7 @@ class MenuViewAppBar extends StatelessWidget {
                   GoRouter.of(context).push(kHomeView);
                 },
                 child: AppImages.backarrow)),
+        const Spacer(),
       ],
     );
   }

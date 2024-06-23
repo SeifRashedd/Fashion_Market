@@ -1,8 +1,10 @@
+import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class FavoriteViewAppBar extends StatelessWidget {
-  const FavoriteViewAppBar({super.key});
+class MenuItemViewAppBar extends StatelessWidget {
+  const MenuItemViewAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +15,10 @@ class FavoriteViewAppBar extends StatelessWidget {
             width: 42,
             child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pop();
+                  GoRouter.of(context).push(kMenuView);
                 },
                 child: AppImages.backarrow)),
+        const Spacer(),
       ],
     );
   }
