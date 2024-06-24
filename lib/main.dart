@@ -1,6 +1,7 @@
 import 'package:fashion_market/Features/home/data/repos/home_repo_impl.dart';
 import 'package:fashion_market/Features/home/presentation/manger/favorite_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/manger/prodcuts_cubit/products_cubit.dart';
+import 'package:fashion_market/Features/profile/presentaion/views/manger/add_product_cubit/add_product_cubit_cubit.dart';
 import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_router.dart';
 import 'package:fashion_market/core/utils/service_locator.dart';
@@ -27,6 +28,9 @@ class FashionMarcket extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => AddProductCubit(),
+        ),
         BlocProvider(
           create: (context) => ProductsCubit(
             getIt.get<HomeRepoImpl>(),

@@ -11,3 +11,4 @@ const kBagesCategory = 'bages';
 const kNewAriivalsCategory = 'new arrival';
 const kShosesCategory = 'shose';
 const kProfileView='/ProfileView';
+const kAddProductView = '/AddProductView';

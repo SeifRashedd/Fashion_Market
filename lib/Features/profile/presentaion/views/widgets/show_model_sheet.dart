@@ -9,16 +9,18 @@ class ShowModelSheet extends StatefulWidget {
   const ShowModelSheet({super.key});
 
   @override
-  _ShowModelSheetState createState() => _ShowModelSheetState();
+  ShowModelSheetState createState() => ShowModelSheetState();
 }
 
-class _ShowModelSheetState extends State<ShowModelSheet> {
+class ShowModelSheetState extends State<ShowModelSheet> {
   String name = '';
   String description = '';
   String image = '';
   String category = '';
   int numReviews = 0;
   double price = 0.0;
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,6 @@ class _ShowModelSheetState extends State<ShowModelSheet> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: ListView(
           children: [
-            const Gap(10),
             Text(
               'Add New Product',
               style: AppStyles.styleBold18,
@@ -91,13 +92,12 @@ class _ShowModelSheetState extends State<ShowModelSheet> {
             CustomButton(
               onTap: () {
                 AddProduct().addProduct(
-                  name: name,
-                  description: description,
-                  price: price, 
-                  category: category,
-                  image: image,
-                  numReviews: numReviews 
-                );
+                    name: name,
+                    description: description,
+                    price: price,
+                    category: category,
+                    image: image,
+                    numReviews: numReviews);
               },
               text: 'Add the product',
             ),

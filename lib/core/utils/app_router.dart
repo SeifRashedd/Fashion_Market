@@ -4,6 +4,7 @@ import 'package:fashion_market/Features/home/presentation/views/favorite_view.da
 import 'package:fashion_market/Features/home/presentation/views/home_view.dart';
 import 'package:fashion_market/Features/home/presentation/views/menu_view.dart';
 import 'package:fashion_market/Features/profile/presentaion/views/profile_view.dart';
+import 'package:fashion_market/Features/profile/presentaion/views/widgets/add_product_view.dart';
 import 'package:fashion_market/Features/splash/presentation/views/splash_view.dart';
 import 'package:fashion_market/constants.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +39,12 @@ abstract class AppRouter {
       GoRoute(
         path: kProfileView,
         builder: (context, state) => const ProfileView()
-      )
+      ),
+      GoRoute(
+path: kAddProductView,
+builder: (context, state) =>const AddProductView() ,
+
+      ),
     ],
   );
 }
