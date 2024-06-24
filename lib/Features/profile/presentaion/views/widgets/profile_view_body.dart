@@ -1,5 +1,6 @@
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:fashion_market/Features/profile/presentaion/views/widgets/show_model_sheet.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,14 @@ class ProfileViewBody extends StatelessWidget {
             ),
           ),
           const Gap(40),
-          const CustomButton(
+          CustomButton(
+            onTap: () {
+              showModalBottomSheet(
+                  context: context,
+                  builder: (context) {
+                    return  ShowModelSheet();
+                  });
+            },
             text: 'Add a new prduct',
           ),
         ]),
