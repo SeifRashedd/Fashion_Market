@@ -17,10 +17,6 @@ class AddProductCubit extends Cubit<AddProductCubitState> {
     emit(AddProductCubitLoading());
 
     try {
-      
-      await Future.delayed(const Duration(seconds: 2)); // Simulate network delay
-
-      // Simulate a success response
       emit(AddProductCubitSuccess());
     } catch (e) {
       emit(const AddProductCubitFailure("Failed to add product"));
