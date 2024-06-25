@@ -1,4 +1,4 @@
-import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
+import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/product_details_view_app_bar.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
@@ -114,9 +114,13 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                 ],
               ),
               const Gap(40),
-              const CustomFormTextField(),
-              const Gap(16),
-              const CustomFormTextField(),
+              const CustomButton(
+                text: 'update the product',
+              ),
+              const Gap(20),
+              const CustomButton(
+                text: 'delete the product',
+              ),
             ],
           ),
         ),
@@ -124,5 +128,3 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
     );
   }
 }
-
-
