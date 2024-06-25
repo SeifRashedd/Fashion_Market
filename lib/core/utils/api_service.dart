@@ -1,10 +1,10 @@
 import 'dart:convert';
-
+import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 
 class ApiService {
-  final _baseUrl = 'https://fashion-market-backend.onrender.com/api/v1/';
+  final _baseUrl = 'https://fashion-market-backend.onrender.com/api/v1/product/';
   final Dio _dio;
 
   ApiService(this._dio);
@@ -19,6 +19,22 @@ class ApiService {
       return products;
     } else {
       throw Exception('Failed to load products');
+    }
+  }
+
+  Future<void> deleteProduct({required String productId}) async {
+    final String deleteUrl = '$_baseUrl$productId';
+
+    try {
+      Response response = await _dio.delete(deleteUrl);
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        log('Product with ID $productId was successfully deleted.');
+      } else {
+        log('Failed to delete product with ID $productId. Status code: ${response.statusCode}, Response: ${response.data}');
+      }
+    } catch (e) {
+      log('An error occurred: $e');
     }
   }
 }
@@ -42,7 +58,8 @@ class Api {
         }
         return responseBody;
       } else {
-        throw Exception('Problem in status code: ${response.statusCode} with body: ${response.data}');
+        throw Exception(
+            'Problem in status code: ${response.statusCode} with body: ${response.data}');
       }
     } catch (e) {
       throw Exception('Failed to post data: $e');

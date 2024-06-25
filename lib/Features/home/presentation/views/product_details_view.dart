@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/product_details_view_app_bar.dart';
+import 'package:fashion_market/core/utils/api_service.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,7 @@ class ProductDetailsView extends StatefulWidget {
   @override
   ProductDetailsViewState createState() => ProductDetailsViewState();
   final ProductModel productModel;
+
 }
 
 class ProductDetailsViewState extends State<ProductDetailsView> {
@@ -118,7 +121,12 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                 text: 'update the product',
               ),
               const Gap(20),
-              const CustomButton(
+               CustomButton(
+                onTap: () {
+                 ApiService(Dio()).deleteProduct(
+                  productId: widget.productModel.id
+                 );
+                },
                 text: 'delete the product',
               ),
             ],

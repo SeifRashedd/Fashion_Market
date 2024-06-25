@@ -12,7 +12,7 @@ class HomeRepoImpl implements HomeRepo{
   @override
   Future<Either<Failuer, List<ProductModel>>> fetchCategory({required String categoryname}) async {
      try {
-  var data = await apiService.get(endPoint: 'product?category=$categoryname');
+  var data = await apiService.get(endPoint: '?category=$categoryname');
   List<ProductModel> products = data.values.toList();
   
   return right(products);
