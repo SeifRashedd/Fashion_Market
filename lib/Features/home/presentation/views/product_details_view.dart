@@ -1,6 +1,7 @@
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/home/data/models/Api/product_model/product_model.dart';
 import 'package:fashion_market/Features/home/presentation/manger/delete_product_cubit/deleteproduct_cubit.dart';
+import 'package:fashion_market/Features/home/presentation/views/update_view.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/product_details_view_app_bar.dart';
 import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
@@ -135,7 +136,10 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                     const Gap(40),
                     CustomButton(
                       onTap: () {
-                        GoRouter.of(context).push(kUpdateView);
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return UpdateView(productModel: widget.productModel);
+                        }));
                       },
                       text: 'update the product',
                     ),

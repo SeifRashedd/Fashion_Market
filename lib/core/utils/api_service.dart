@@ -37,6 +37,7 @@ class ApiService {
       log('An error occurred: $e');
     }
   }
+  
 }
 
 class Api {
@@ -69,6 +70,31 @@ class Api {
 
 class AddProduct {
   Future<ProductModel> addProduct({
+    required String name,
+    required double price,
+    required String description,
+    required String image,
+    required String category,
+    required int numReviews,
+  }) async {
+    Map<String, dynamic> data = await Api().post(
+      url: 'https://fashion-market-backend.onrender.com/api/v1/product',
+      body: {
+        'name': name,
+        'price': price,
+        'description': description,
+        'image': image,
+        'category': category,
+        'numReviews': numReviews,
+      },
+    );
+    return ProductModel.fromJson(data);
+  }
+}
+
+class UpdateProduct
+{
+  Future<ProductModel> update({
     required String name,
     required double price,
     required String description,
