@@ -25,6 +25,8 @@ class AddProductViewState extends State<AddProductView> {
   String category = '';
   int numReviews = 0;
   double price = 0.0;
+  GlobalKey<FormState> formkey = GlobalKey();
+  bool isCategoryValid = true;
 
   final List<String> categories = [
     'New Arrival',
@@ -62,101 +64,126 @@ class AddProductViewState extends State<AddProductView> {
             } else {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ListView(
-                  children: [
-                    const CustomAppBar(),
-                    const Gap(30),
-                    Center(
-                      child: Text(
-                        'Add New Product',
-                        style: AppStyles.styleBold18,
-                      ),
-                    ),
-                    const Gap(30),
-                    Center(
-                      child: DropdownButton<String>(
-                        value: categories.contains(category) ? category : null,
-                        hint: Text(
-                          category.isEmpty
-                              ? 'Choose a category'
-                              : 'Chosen category: ${categoryMap.keys.firstWhere(
-                                  (key) => categoryMap[key] == category,
-                                )}',
+                child: Form(
+                  key: formkey,
+                  child: ListView(
+                    children: [
+                      const CustomAppBar(),
+                      const Gap(30),
+                      Center(
+                        child: Text(
+                          'Add New Product',
+                          style: AppStyles.styleBold18,
                         ),
-                        items: categories.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (newValue) {
+                      ),
+                      const Gap(30),
+                      Center(
+                        child: Column(
+                          children: [
+                            DropdownButton<String>(
+                              value: categories.contains(category)
+                                  ? category
+                                  : null,
+                              hint: Text(
+                                category.isEmpty
+                                    ? 'Choose a category'
+                                    : 'Chosen category: ${categoryMap.keys.firstWhere(
+                                        (key) => categoryMap[key] == category,
+                                      )}',
+                              ),
+                              items: categories.map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  category = categoryMap[newValue!]!;
+                                  isCategoryValid = true;
+                                });
+                              },
+                            ),
+                            if (!isCategoryValid)
+                              const Text(
+                                'Please choose a category',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 12,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                      const Gap(10),
+                      CustomFormTextField(
+                        onChange: (data) {
                           setState(() {
-                            category = categoryMap[newValue!]!;
+                            name = data;
                           });
                         },
+                        hintText: 'Type the product name',
                       ),
-                    ),
-                    const Gap(10),
-                    CustomFormTextField(
-                      onChange: (data) {
-                        setState(() {
-                          name = data;
-                        });
-                      },
-                      hintText: 'Type the product name',
-                    ),
-                    const Gap(30),
-                    CustomFormTextField(
-                      onChange: (data) {
-                        setState(() {
-                          description = data;
-                        });
-                      },
-                      hintText: 'Type the product description',
-                    ),
-                    const Gap(30),
-                    CustomFormTextField(
-                      onChange: (data) {
-                        setState(() {
-                          price = double.tryParse(data) ?? 0.0;
-                        });
-                      },
-                      hintText: 'Type the product price',
-                    ),
-                    const Gap(30),
-                    CustomFormTextField(
-                      onChange: (data) {
-                        setState(() {
-                          image = data;
-                        });
-                      },
-                      hintText: 'Put the image of the product',
-                    ),
-                    const Gap(30),
-                    CustomFormTextField(
-                      onChange: (data) {
-                        setState(() {
-                          numReviews = int.tryParse(data) ?? 0;
-                        });
-                      },
-                      hintText: 'Type the number of reviews of the product',
-                    ),
-                    const Gap(30),
-                    CustomButton(
-                      onTap: () {
-                        context.read<AddProductCubit>().addProduct(
-                              name: name,
-                              description: description,
-                              price: price,
-                              category: category,
-                              image: image,
-                              numReviews: numReviews,
-                            );
-                      },
-                      text: 'Add the product',
-                    ),
-                    const Gap(30),
-                  ],
+                      const Gap(30),
+                      CustomFormTextField(
+                        onChange: (data) {
+                          setState(() {
+                            description = data;
+                          });
+                        },
+                        hintText: 'Type the product description',
+                      ),
+                      const Gap(30),
+                      CustomFormTextField(
+                        onChange: (data) {
+                          setState(() {
+                            price = double.tryParse(data) ?? 0.0;
+                          });
+                        },
+                        hintText: 'Type the product price',
+                      ),
+                      const Gap(30),
+                      CustomFormTextField(
+                        onChange: (data) {
+                          setState(() {
+                            image = data;
+                          });
+                        },
+                        hintText: 'Put the image of the product',
+                      ),
+                      const Gap(30),
+                      CustomFormTextField(
+                        onChange: (data) {
+                          setState(() {
+                            numReviews = int.tryParse(data) ?? 0;
+                          });
+                        },
+                        hintText: 'Type the number of reviews of the product',
+                      ),
+                      const Gap(30),
+                      CustomButton(
+                        onTap: () {
+                          setState(() {
+                            isCategoryValid = category.isNotEmpty;
+                          });
+
+                          if (formkey.currentState!.validate() &&
+                              isCategoryValid) {
+                            context.read<AddProductCubit>().addProduct(
+                                  name: name,
+                                  description: description,
+                                  price: price,
+                                  category: category,
+                                  image: image,
+                                  numReviews: numReviews,
+                                );
+                          }
+                        },
+                        text: 'Add the product',
+                      ),
+                      const Gap(30),
+                    ],
+                  ),
                 ),
               );
             }
