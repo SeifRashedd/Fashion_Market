@@ -1,7 +1,8 @@
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/custom_app_bar.dart';
-import 'package:fashion_market/Features/profile/presentaion/views/manger/add_product_cubit/add_product_cubit.dart';
+import 'package:fashion_market/Features/profile/presentaion/manger/add_product_cubit/add_product_cubit.dart';
+
 import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
 import 'package:fashion_market/core/widgets/custom_loading_indi.dart';
