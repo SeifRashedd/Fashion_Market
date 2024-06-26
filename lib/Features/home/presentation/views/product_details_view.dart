@@ -133,7 +133,10 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
                       ],
                     ),
                     const Gap(40),
-                    const CustomButton(
+                    CustomButton(
+                      onTap: () {
+                        GoRouter.of(context).push(kUpdateView);
+                      },
                       text: 'update the product',
                     ),
                     const Gap(20),
