@@ -1,4 +1,5 @@
 import 'package:fashion_market/Features/home/data/repos/home_repo_impl.dart';
+import 'package:fashion_market/Features/home/presentation/manger/delete_product_cubit/deleteproduct_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/manger/favorite_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/manger/prodcuts_cubit/products_cubit.dart';
 import 'package:fashion_market/Features/profile/presentaion/views/manger/add_product_cubit/add_product_cubit.dart';
@@ -38,6 +39,9 @@ class FashionMarcket extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FavoritesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => DeleteproductCubit(),
         ),
       ],
       child: MaterialApp.router(

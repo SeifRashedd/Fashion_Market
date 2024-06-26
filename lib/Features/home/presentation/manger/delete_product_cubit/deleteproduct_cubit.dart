@@ -11,9 +11,9 @@ class DeleteproductCubit extends Cubit<DeleteproductState> {
   Future<void> deleteProduct({required String productId}) async
   {
   emit(DeleteproductLoading());
-
   try {
   await ApiService(Dio()).deleteProduct(productId: productId);
+  emit(DeleteProductSuccess(productId));
 } catch (e) {
   emit(DeleteproductFailure('an error occurred $e'));
 }
