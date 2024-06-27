@@ -26,6 +26,7 @@ Future<void> main() async {
 
 class FashionMarcket extends StatelessWidget {
   const FashionMarcket({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class FashionMarcket extends StatelessWidget {
         ),
         BlocProvider(
           create: ((context) => RegisterCubit())
-        )
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

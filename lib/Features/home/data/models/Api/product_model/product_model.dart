@@ -2,16 +2,16 @@ import 'package:equatable/equatable.dart';
 
 class ProductModel extends Equatable {
   final String id;
-  final String name;
-  final String description;
-  final num price;
-  final String image;
-  final String category;
-  final int numReviews;
-  final String createdAt;
-  final String updatedAt;
+  String name;
+  String description;
+  num price;
+  String image;
+  String category;
+final  int numReviews;
+ final String createdAt;
+ final String updatedAt;
 
-  const ProductModel({
+   ProductModel({
     required this.id,
     required this.name,
     required this.description,

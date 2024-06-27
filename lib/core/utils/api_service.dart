@@ -66,6 +66,29 @@ class Api {
       throw Exception('Failed to post data: $e');
     }
   }
+  Future<dynamic> update({
+    required String url,
+    required dynamic body,
+  }) async {
+    try {
+      Response response = await _dio.put(
+        url,
+        data: body,
+      );
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        var responseBody = response.data;
+        if (responseBody is String) {
+          responseBody = jsonDecode(responseBody);
+        }
+        return responseBody;
+      } else {
+        throw Exception(
+            'Problem in status code: ${response.statusCode} with body: ${response.data}');
+      }
+    } catch (e) {
+      throw Exception('Failed to post data: $e');
+    }
+  }
 }
 
 class AddProduct {
@@ -101,9 +124,8 @@ class UpdateProduct
     required String description,
     required String image,
     required String category,
-    required int numReviews,
   }) async {
-    Map<String, dynamic> data = await Api().post(
+    Map<String, dynamic> data = await Api().update(
       url: 'https://fashion-market-backend.onrender.com/api/v1/product/$id',
       body: {
         'name': name,
@@ -111,7 +133,6 @@ class UpdateProduct
         'description': description,
         'image': image,
         'category': category,
-        'numReviews': numReviews,
       },
     );
     return ProductModel.fromJson(data);
