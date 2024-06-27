@@ -2,15 +2,13 @@ import 'package:fashion_market/Features/auth/presention/views/widgets/custom_but
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_form_text_failed.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:fashion_market/Features/profile/presentaion/manger/add_product_cubit/add_product_cubit.dart';
-
 import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
-import 'package:fashion_market/core/widgets/custom_loading_indi.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class AddProductView extends StatefulWidget {
   const AddProductView({super.key});
@@ -28,6 +26,7 @@ class AddProductViewState extends State<AddProductView> {
   double price = 0.0;
   GlobalKey<FormState> formkey = GlobalKey();
   bool isCategoryValid = true;
+  bool isLoding = false;
 
   final List<String> categories = [
     'New Arrival',
@@ -48,21 +47,23 @@ class AddProductViewState extends State<AddProductView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: BlocConsumer<AddProductCubit, AddProductCubitState>(
-          listener: (context, state) {
-            if (state is AddProductCubitSuccess) {
-              showSnackBar(context, 'Product added successfully!',
-                  isError: false);
-              GoRouter.of(context).push(kHomeView);
-            } else if (state is AddProductCubitFailure) {
-              showSnackBar(context, state.errMsg, isError: true);
-            }
-          },
-          builder: (context, state) {
-            if (state is AddProductCubitLoading) {
-              return const CustomLoadingIndicator();
-            } else {
+      body: ModalProgressHUD(
+        inAsyncCall: isLoding,
+        child: SafeArea(
+          child: BlocConsumer<AddProductCubit, AddProductCubitState>(
+            listener: (context, state) {
+              if (state is AddProductCubitSuccess) {
+                showSnackBar(context, 'Product added successfully!',
+                    isError: false);
+                GoRouter.of(context).push(kHomeView);
+              } else if (state is AddProductCubitFailure) {
+                showSnackBar(context, state.errMsg, isError: true);
+                isLoding = false;
+              } else if (state is AddProductCubitLoading) {
+                isLoding = true;
+              }
+            },
+            builder: (context, state) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Form(
@@ -187,8 +188,8 @@ class AddProductViewState extends State<AddProductView> {
                   ),
                 ),
               );
-            }
-          },
+            },
+          ),
         ),
       ),
     );

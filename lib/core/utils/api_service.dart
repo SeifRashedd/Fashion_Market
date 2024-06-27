@@ -95,6 +95,7 @@ class AddProduct {
 class UpdateProduct
 {
   Future<ProductModel> update({
+    required String id,
     required String name,
     required double price,
     required String description,
@@ -103,7 +104,7 @@ class UpdateProduct
     required int numReviews,
   }) async {
     Map<String, dynamic> data = await Api().post(
-      url: 'https://fashion-market-backend.onrender.com/api/v1/product',
+      url: 'https://fashion-market-backend.onrender.com/api/v1/product/$id',
       body: {
         'name': name,
         'price': price,
