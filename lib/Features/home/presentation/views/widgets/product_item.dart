@@ -87,7 +87,8 @@ class ProductItemState extends State<ProductItem> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        Text('\$${widget.productModel.price.toString()}', style: AppStyles.styleSemiBold14),
+        Text('\$${widget.productModel.price.toString()}',
+            style: AppStyles.styleSemiBold14),
       ],
     );
   }

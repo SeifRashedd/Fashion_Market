@@ -21,22 +21,7 @@ class MenuListViewBody extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.only(top: 20),
           child: GestureDetector(
-            onTap: () {
-              final productsCubit = BlocProvider.of<ProductsCubit>(context);
-              productsCubit.fetchProducts(
-                categoryName: categotyModel[index].kname,
-              );
-              productsCubit.stream.listen((state) {
-                if (state is ProductsSuccess) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          MenuItemView(productlist: state.products),
-                    ),
-                  );
-                }
-              });
-            },
+            onTap: () => _onCategoryTap(context, categotyModel[index].kname),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Container(
@@ -76,5 +61,22 @@ class MenuListViewBody extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _onCategoryTap(BuildContext context, String categoryName) async {
+    final productsCubit = BlocProvider.of<ProductsCubit>(context);
+    await productsCubit.fetchProducts(categoryName: categoryName);
+
+    if (!context.mounted) return;
+
+    if (productsCubit.state is ProductsSuccess) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => MenuItemView(
+            productlist: (productsCubit.state as ProductsSuccess).products,
+          ),
+        ),
+      );
+    }
   }
 }

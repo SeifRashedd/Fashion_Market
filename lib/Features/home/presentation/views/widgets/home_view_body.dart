@@ -35,7 +35,7 @@ class HomeViewBody extends StatelessWidget {
             const PromoCodeListView(),
             const Gap(28),
             Text(
-              'Last category you searched for',
+              'New Arrival',
               style: AppStyles.styleBold18,
             ),
             const Gap(11),

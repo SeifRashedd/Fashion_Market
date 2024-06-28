@@ -4,8 +4,6 @@ import 'package:fashion_market/Features/home/data/repos/home_repo_impl.dart';
 import 'package:fashion_market/Features/home/presentation/manger/delete_product_cubit/deleteproduct_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/manger/favorite_cubit.dart';
 import 'package:fashion_market/Features/home/presentation/manger/prodcuts_cubit/products_cubit.dart';
-import 'package:fashion_market/Features/profile/presentaion/manger/add_product_cubit/add_product_cubit.dart';
-import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_router.dart';
 import 'package:fashion_market/core/utils/service_locator.dart';
 import 'package:fashion_market/firebase_options.dart';
@@ -26,20 +24,15 @@ Future<void> main() async {
 
 class FashionMarcket extends StatelessWidget {
   const FashionMarcket({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AddProductCubit(),
-        ),
-        BlocProvider(
-          create: (context) => ProductsCubit(
-            getIt.get<HomeRepoImpl>(),
-          )..fetchProducts(categoryName: kNewAriivalsCategory),
-        ),
+            create: (context) => ProductsCubit(
+                  getIt.get<HomeRepoImpl>(),
+                )),
         BlocProvider(
           create: (context) => FavoritesCubit(),
         ),
@@ -49,9 +42,7 @@ class FashionMarcket extends StatelessWidget {
         BlocProvider(
           create: ((context) => LoginCubit()),
         ),
-        BlocProvider(
-          create: ((context) => RegisterCubit())
-        ),
+        BlocProvider(create: ((context) => RegisterCubit())),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
