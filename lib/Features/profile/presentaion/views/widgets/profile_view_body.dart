@@ -1,5 +1,6 @@
 import 'package:fashion_market/Features/auth/presention/views/widgets/custom_button.dart';
 import 'package:fashion_market/Features/home/presentation/views/widgets/custom_app_bar.dart';
+import 'package:fashion_market/Features/profile/presentaion/views/widgets/profile_menu.dart';
 import 'package:fashion_market/constants.dart';
 import 'package:fashion_market/core/utils/app_images.dart';
 import 'package:fashion_market/core/utils/app_styles.dart';
@@ -44,10 +45,20 @@ class ProfileViewBody extends StatelessWidget {
                         style:
                             AppStyles.styleBold18.copyWith(color: Colors.white),
                       ),
-                      Text(
-                        email,
-                        style: AppStyles.styleRegular16
-                            .copyWith(color: Colors.white),
+                      Row(
+                        children: [
+                          Text(
+                            email,
+                            style: AppStyles.styleRegular16
+                                .copyWith(color: Colors.white),
+                          ),
+                          const Gap(10),
+                          Text(
+                            '(Seller)',
+                            style: AppStyles.styleSemiBold14
+                                .copyWith(color: Colors.white),
+                          ),
+                        ],
                       ),
                     ],
                   )
@@ -62,6 +73,8 @@ class ProfileViewBody extends StatelessWidget {
             },
             text: 'Add a new prduct',
           ),
+          const Gap(40),
+          const ProfileMenu()
         ]),
       ),
     );
