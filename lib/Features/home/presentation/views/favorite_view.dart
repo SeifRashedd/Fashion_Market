@@ -15,7 +15,7 @@ class FavoriteView extends StatelessWidget {
       body: BlocBuilder<FavoritesCubit, List<ProductModel>>(
         builder: (context, favorites) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 25),
             child: SafeArea(
               child: Column(
                 children: [
