@@ -37,13 +37,7 @@ class ApiService {
       log('An error occurred: $e');
     }
   }
-  
-}
-
-class Api {
-  final Dio _dio = Dio();
-
-  Future<dynamic> post({
+    Future<dynamic> post({
     required String url,
     required dynamic body,
   }) async {
@@ -89,6 +83,7 @@ class Api {
       throw Exception('Failed to post data: $e');
     }
   }
+  
 }
 
 class AddProduct {
@@ -100,7 +95,7 @@ class AddProduct {
     required String category,
     required int numReviews,
   }) async {
-    Map<String, dynamic> data = await Api().post(
+    Map<String, dynamic> data = await ApiService(Dio()).post(
       url: 'https://fashion-market-backend.onrender.com/api/v1/product',
       body: {
         'name': name,
@@ -125,7 +120,7 @@ class UpdateProduct
     required String image,
     required String category,
   }) async {
-    Map<String, dynamic> data = await Api().update(
+    Map<String, dynamic> data = await ApiService(Dio()).update(
       url: 'https://fashion-market-backend.onrender.com/api/v1/product/$id',
       body: {
         'name': name,
