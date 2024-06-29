@@ -13,7 +13,7 @@ import 'package:fashion_market/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const FashionMarcket());
+    await tester.pumpWidget(const FashionMarket());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

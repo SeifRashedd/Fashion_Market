@@ -44,8 +44,8 @@ class ProductDetailsViewState extends State<ProductDetailsView> {
         child: BlocConsumer<DeleteproductCubit, DeleteproductState>(
           listener: (context, state) {
             if (state is DeleteProductSuccess) {
-              showSnackBar(context, 'Product deleted successfully!',
-                  isError: false);
+              // showSnackBar(context, 'Product deleted successfully!',
+              //     isError: false);
               GoRouter.of(context).push(kHomeView);
             } else if (state is DeleteproductFailure) {
               showSnackBar(context, state.errMsg, isError: true);

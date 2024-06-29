@@ -39,7 +39,6 @@ class HomeViewState extends State<HomeView> {
         index: selectedIndex,
         children: const [
           HomeViewBody(),
-          // Add other views for different indices if needed
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(

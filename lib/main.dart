@@ -20,11 +20,11 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const FashionMarcket());
+  runApp(const FashionMarket());
 }
 
-class FashionMarcket extends StatelessWidget {
-  const FashionMarcket({super.key});
+class FashionMarket extends StatelessWidget {
+  const FashionMarket({super.key});
 
   @override
   Widget build(BuildContext context) {
