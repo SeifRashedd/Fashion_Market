@@ -43,10 +43,32 @@ Fashion Market is a mobile application built using the Flutter framework. This a
 <div style="display: flex; flex-wrap: wrap;">
     <div style="margin: 10px;">
         <p>Auth Screen</p>
-        <img src="screenshots/Loginpage.png" alt="Home Screen" width="250"/>
-        <img src="screenshots/WrongPasswordHandling .png" alt="Home Screen" width="250"/>
-        <img src="screenshots/RegisterPage.png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/Loginpage.png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/WrongPasswordHandling .png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/RegisterPage.png" alt="Home Screen" width="250"/>
     </div>
+    <div style="margin: 10px;">
+       <p>Home Page Screen</p>
+        <img src="Screenshots/HomePage1.png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/HomePage2.png" alt="Home Screen" width="250"/>
+    </div>
+   <div style="margin: 10px;">
+       <p>Profile Screen</p>
+        <img src="Screenshots/ProfilePage.png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/AddProductPage.png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/AddProductPage2.png" alt="Home Screen" width="250"/>
+    </div>
+  <div style="margin: 10px;">
+       <p>Favourite Page </p>
+        <img src="Screenshots/FavPage.png" alt="Home Screen" width="250"/>
+    </div>
+     <div style="margin: 10px;">
+       <p>Menu Screen</p>
+        <img src="Screenshots/MenuPage.png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/ProductsDetailsPage.png" alt="Home Screen" width="250"/>
+        <img src="Screenshots/UpdatePage.png" alt="Home Screen" width="250"/>
+    </div>
+</div>
 
 ## Getting Started
 To get a local copy up and running, follow these simple steps:
